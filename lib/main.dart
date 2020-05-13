@@ -1,6 +1,8 @@
 import 'dart:io';
+import 'package:flui/flui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_template/components/index.dart';
 import 'tab_navigator.dart';
 
 // 运行 app， 类似 React.createElement(<App/>, root)
@@ -8,7 +10,7 @@ void main() {
   runApp(MyApp());
   if (Platform.isAndroid) {
     SystemUiOverlayStyle systemUiOverlayStyle =
-    SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   }
 }
@@ -20,7 +22,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return FLToastProvider(
+        child: MaterialApp(
       color: Colors.red,
       title: 'flutter_名称',
       theme: ThemeData(
@@ -30,6 +33,6 @@ class MyApp extends StatelessWidget {
         }),
       ),
       home: TabNavigator(),
-    );
+    ));
   }
 }

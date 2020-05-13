@@ -1,5 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_template/api/home.dart';
+import '../components/dialog.dart';
+import '../components/datePicker.dart';
+import '../components/toast.dart';
 
 class Search extends StatelessWidget {
   @override
@@ -13,40 +16,36 @@ class Search extends StatelessWidget {
           RaisedButton(
             child: Text('对话框'),
             onPressed: () {
-              showDialog(
+              MDialog.alert(
                   context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text("这是一个iOS风格的对话框"),
-                      content: SizedBox(
-                        height: 100.0,
-                        child: SingleChildScrollView(
-                          child: ListBody(
-                            children: <Widget>[
-                              Text("第1行"),
-                              Text("第2行"),
-                            ],
-                          ),
-                        ),
-                      ),
-                      actions: <Widget>[
-                        FlatButton(
-                          child: Text("取消"),
-                          onPressed: () {
-                            Navigator.pop(context);
-                            print("取消");
-                          },
-                        ),
-                        FlatButton(
-                          child: Text("确定"),
-                          onPressed: () {
-                            Navigator.pop(context);
-                            print("确定");
-                          },
-                        ),
-                      ],
-                    );
+                  title: '标题',
+                  content: '内容',
+                  onRightPress: () {
+                    print('press right button');
                   });
+            },
+          ),
+          RaisedButton(
+            child: Text('日期选择'),
+            onPressed: () {
+              DateTimePicker.show(
+                  context: context,
+                  onConfirm: (date) {
+                    print('点击时间为${date}');
+                  });
+            },
+          ),
+          RaisedButton(
+            child: Text('发送请求'),
+            onPressed: () async {
+              Map res = await ApiHome.getList();
+              print(res['shop']);
+            },
+          ),
+          RaisedButton(
+            child: Text('提示信息'),
+            onPressed: () async {
+              MToast.info(msg: 'hello');
             },
           ),
         ],
