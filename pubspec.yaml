@@ -35,6 +35,9 @@ dependencies:
   flui: ^0.9.1
   r_upgrade: ^0.2.5+1
   easy_permission_validator: ^2.0.0
+  r_scan: ^0.1.4+1
+  camera: ^0.5.8+1
+  fluwx: ^2.0.9
 
 
 dev_dependencies:

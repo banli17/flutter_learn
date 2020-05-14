@@ -61,23 +61,6 @@ class _Home extends State<Home> {
                       },
                     ),
                   ),
-                  Container(
-                    height: 1800,
-                    child: GestureDetector(
-                      child: ListTile(
-                        title: Text('打开百度 webview'),
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      MWebView(
-                                          url: 'https://m.baidu.com',
-                                          hideAppBar: false)));
-                        },
-                      ),
-                    ),
-                  )
                 ],
               ))),
       Opacity(

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/components/index.dart';
 import 'tab_navigator.dart';
+import 'pages/camera.dart';
 
 // 运行 app， 类似 React.createElement(<App/>, root)
 void main() {

@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/api/home.dart';
+import 'package:flutter_template/pages/webview.dart';
 import 'package:r_upgrade/r_upgrade.dart';
 import 'package:easy_permission_validator/easy_permission_validator.dart';
 import '../components/dialog.dart';
 import '../components/datePicker.dart';
 import '../components/toast.dart';
+import 'camera.dart';
+import 'package:fluwx/fluwx.dart';
 
 class Search extends StatelessWidget {
+//  _initFluwx() async {
+//    await registerWxApi(
+//        appId: "wxd930ea5d5a258f4f",
+//        doOnAndroid: true,
+//        doOnIOS: true,
+//        universalLink: "https://your.univerallink.com/link/");
+//    var result = await isWeChatInstalled;
+//    print("is installed $result");
+//  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +61,42 @@ class Search extends StatelessWidget {
             child: Text('提示信息'),
             onPressed: () async {
               MToast.info(msg: 'hello');
+            },
+          ),
+          RaisedButton(
+            child: Text('拍照片'),
+            onPressed: () async {
+              await CameraApp.init();
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CameraApp()));
+            },
+          ),
+          RaisedButton(
+            child: Text('打开网页 百度'),
+            onPressed: () async {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MWebView(
+                          url: 'https://m.baidu.com', hideAppBar: false)));
+            },
+          ),
+          RaisedButton(
+            child: Text('loading'),
+            onPressed: () async {
+              MToast.loading();
+            },
+          ),
+          RaisedButton(
+            child: Text('微信打开小程序'),
+            onPressed: () async {
+              await registerWxApi(
+                  appId: "wxd930ea5d5a228f5f",
+                  universalLink: "https://your.univerallink.com/link/");
+              var result = await isWeChatInstalled;
+              if (!result) {
+                return MToast.info(msg: '没有安装微信');
+              }
             },
           ),
           RaisedButton(
