@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/api/home.dart';
+import 'package:flutter_template/pages/tabview.dart';
+import 'package:flutter_template/pages/video.dart';
 import 'package:flutter_template/pages/webview.dart';
 import 'package:r_upgrade/r_upgrade.dart';
 import 'package:easy_permission_validator/easy_permission_validator.dart';
@@ -88,15 +90,35 @@ class Search extends StatelessWidget {
             },
           ),
           RaisedButton(
+            child: Text('打开 tabview'),
+            onPressed: () async {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => TabView()));
+            },
+          ),
+          RaisedButton(
+            child: Text('视频播放'),
+            onPressed: () async {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => VideoPage()));
+            },
+          ),
+          RaisedButton(
             child: Text('微信打开小程序'),
             onPressed: () async {
               await registerWxApi(
-                  appId: "wxd930ea5d5a228f5f",
+                  appId: "wxbf8d954fb9e70108",
                   universalLink: "https://your.univerallink.com/link/");
               var result = await isWeChatInstalled;
               if (!result) {
                 return MToast.info(msg: '没有安装微信');
               }
+
+              MToast.info(msg: '安装了微信');
+              await launchWeChatMiniProgram(
+                  username: 'gh_48fd4fdef3fc',
+                  path: '/pages/home/index',
+                  miniProgramType: WXMiniProgramType.PREVIEW);
             },
           ),
           RaisedButton(
@@ -107,11 +129,9 @@ class Search extends StatelessWidget {
                 appName: 'app名称',
                 appNameColor: Colors.red,
                 cancelText: '取消',
-                enableLocationMessage:
-                    'Debe habilitar los permisos necesarios para utilizar la acción.',
+                enableLocationMessage: 'Debe habilitar',
                 goToSettingsText: 'Ir a Configuraciones',
-                permissionSettingsMessage:
-                    'Necesita habilitar los permisos necesarios para que la aplicación funcione correctamente',
+                permissionSettingsMessage: 'Necesita e',
               );
               var result = await permissionValidator.storage();
               if (result) {
