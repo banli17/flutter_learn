@@ -38,8 +38,9 @@ dependencies:
   r_scan: ^0.1.4+1
   camera: ^0.5.8+1
   fluwx: ^2.0.9
-  video_player: ^0.10.11
+#  video_player: ^0.10.11
   fijkplayer: ^0.8.3
+  fish_redux: ^0.3.3
 
 
 dev_dependencies:
