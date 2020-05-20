@@ -1,27 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/api/home.dart';
+import 'package:flutter_template/components/toast.dart';
 import 'package:flutter_template/pages/tabview.dart';
 import 'package:flutter_template/pages/video.dart';
 import 'package:flutter_template/pages/webview.dart';
 import 'package:r_upgrade/r_upgrade.dart';
 import 'package:easy_permission_validator/easy_permission_validator.dart';
 import '../components/dialog.dart';
-import '../components/datePicker.dart';
-import '../components/toast.dart';
 import 'camera.dart';
-import 'package:fluwx/fluwx.dart';
 
 class Search extends StatelessWidget {
-//  _initFluwx() async {
-//    await registerWxApi(
-//        appId: "wxd930ea5d5a258f4f",
-//        doOnAndroid: true,
-//        doOnIOS: true,
-//        universalLink: "https://your.univerallink.com/link/");
-//    var result = await isWeChatInstalled;
-//    print("is installed $result");
-//  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,26 +31,10 @@ class Search extends StatelessWidget {
             },
           ),
           RaisedButton(
-            child: Text('日期选择'),
-            onPressed: () {
-              DateTimePicker.show(
-                  context: context,
-                  onConfirm: (date) {
-                    print('点击时间为${date}');
-                  });
-            },
-          ),
-          RaisedButton(
             child: Text('发送请求'),
             onPressed: () async {
               Map res = await ApiHome.getList();
               print(res['shop']);
-            },
-          ),
-          RaisedButton(
-            child: Text('提示信息'),
-            onPressed: () async {
-              MToast.info(msg: 'hello');
             },
           ),
           RaisedButton(
@@ -84,12 +56,6 @@ class Search extends StatelessWidget {
             },
           ),
           RaisedButton(
-            child: Text('loading'),
-            onPressed: () async {
-              MToast.loading();
-            },
-          ),
-          RaisedButton(
             child: Text('打开 tabview'),
             onPressed: () async {
               Navigator.push(
@@ -107,24 +73,6 @@ class Search extends StatelessWidget {
             child: Text('测试路由router'),
             onPressed: () async {
               Navigator.pushNamed(context, 'video_page');
-            },
-          ),
-          RaisedButton(
-            child: Text('微信打开小程序'),
-            onPressed: () async {
-              await registerWxApi(
-                  appId: "wxbf8d954fb9e70108",
-                  universalLink: "https://your.univerallink.com/link/");
-              var result = await isWeChatInstalled;
-              if (!result) {
-                return MToast.info(msg: '没有安装微信');
-              }
-
-              MToast.info(msg: '安装了微信');
-              await launchWeChatMiniProgram(
-                  username: 'gh_48fd4fdef3fc',
-                  path: '/pages/home/index',
-                  miniProgramType: WXMiniProgramType.PREVIEW);
             },
           ),
           RaisedButton(

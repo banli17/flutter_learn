@@ -4,7 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/components/index.dart';
 import 'package:flutter_template/pages/my.dart';
+import 'package:flutter_template/pages/other/wechat.dart';
+import 'package:flutter_template/pages/ui/picker.dart';
+import 'package:flutter_template/pages/ui/toast.dart';
 import 'package:flutter_template/pages/ui_demo1_page.dart';
+import 'package:flutter_template/pages/ui/appbar.dart';
 import 'package:flutter_template/pages/video.dart';
 import 'tab_navigator.dart';
 import 'pages/camera.dart';
@@ -62,7 +66,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     return FLToastProvider(
         child: MaterialApp(
       color: Colors.red,
-      title: 'flutter_名称',
+      title: 'flutter学习',
       theme: ThemeData(
         brightness: _brightness,
         primarySwatch: Colors.blue,
@@ -76,6 +80,10 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         'camera': (BuildContext context) => CameraApp(),
         'video_page': (BuildContext context) => VideoPage(),
         'ui_demo1_page': (BuildContext context) => UIDemo1Page(),
+        'ui_appbar': (BuildContext context) => UIAppbar(),
+        'ui_toast': (BuildContext context) => UIToast(),
+        'ui_picker': (BuildContext context) => UIPicker(),
+        'other_wechat': (BuildContext context) => OtherWechat(),
       },
     ));
   }

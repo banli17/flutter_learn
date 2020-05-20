@@ -5,11 +5,11 @@ class MToast {
     FLToast.showText(text: msg);
   }
 
-  static loading({String msg = '加载中...'}) {
+  static loading({String msg = '加载中...', int delay = 2}) {
     var dismiss = FLToast.loading(text: msg);
 
     /// do something...
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: delay), () {
       /// hide toast
       dismiss();
     });

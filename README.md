@@ -1,15 +1,15 @@
-# flutter_demo
+# flutter_learn
 
-Flutter 学习 demo。用于测试集成各种好用的插件，测试各种功能。
+Flutter 学习，flutter 学习 demo。用于写学习笔记，测试集成各种好用的插件，测试各种功能。
 
 ## TODO
 
 ## 功能
 
-[-] 闪屏页
-[-] 底部导航
-[-] 页面切换
-[-] 支持 webview, 使用 `webview_flutter`。
+- [x] 闪屏页
+- [x] 底部导航
+- [x] 页面切换
+- [x] 支持 webview, 使用 `webview_flutter`。
 
 ## 插件
 

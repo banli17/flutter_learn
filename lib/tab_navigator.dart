@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'pages/home.dart';
-import 'pages/search.dart';
-import 'pages/travel.dart';
+import 'pages/func/index.dart';
+import 'pages/other/index.dart';
 import 'pages/my.dart';
 
 class TabNavigator extends StatefulWidget {
@@ -22,7 +22,7 @@ class _TabNavigatorState extends State<TabNavigator> {
     return Scaffold(
       body: PageView(
         controller: _controller,
-        children: <Widget>[Home(), Search(), Travel(), My()],
+        children: <Widget>[Home(), PluginFuncPage(), OtherPage(), My()],
         onPageChanged: (index) {
           setState(() {
             _currentIndex = index;
@@ -46,7 +46,7 @@ class _TabNavigatorState extends State<TabNavigator> {
                 ),
                 activeIcon: Icon(Icons.home, color: _activeColor),
                 title: Text(
-                  '主页',
+                  'UI组件',
                   style: TextStyle(
                       color: _currentIndex != 0 ? _defaultColor : _activeColor),
                 )),
@@ -57,7 +57,7 @@ class _TabNavigatorState extends State<TabNavigator> {
                 ),
                 activeIcon: Icon(Icons.search, color: _activeColor),
                 title: Text(
-                  '搜索',
+                  '功能插件',
                   style: TextStyle(
                       color: _currentIndex != 1 ? _defaultColor : _activeColor),
                 )),
@@ -68,7 +68,7 @@ class _TabNavigatorState extends State<TabNavigator> {
                 ),
                 activeIcon: Icon(Icons.camera, color: _activeColor),
                 title: Text(
-                  '旅拍',
+                  '其它插件',
                   style: TextStyle(
                       color: _currentIndex != 2 ? _defaultColor : _activeColor),
                 )),
