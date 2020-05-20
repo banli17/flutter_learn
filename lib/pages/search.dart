@@ -104,6 +104,12 @@ class Search extends StatelessWidget {
             },
           ),
           RaisedButton(
+            child: Text('测试路由router'),
+            onPressed: () async {
+              Navigator.pushNamed(context, 'video_page');
+            },
+          ),
+          RaisedButton(
             child: Text('微信打开小程序'),
             onPressed: () async {
               await registerWxApi(

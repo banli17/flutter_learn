@@ -16,22 +16,22 @@ class _MyState extends State<My> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('我的'),
-      ),
-      body: Column(
-        children: <Widget>[
-          GestureDetector(
-            onTap: () => _printMsg('点击'),
-            onDoubleTap: () => _printMsg('双击'),
-            onLongPress: () => _printMsg('长按'),
-            onTapCancel: () => _printMsg('取消'),
-            onTapUp: (e) => _printMsg('松开'),
-            onTapDown: (e) => _printMsg('按下'),
-            child: Text('用户操作'),
-          ),
-          Column(
+        appBar: AppBar(
+          title: Text('我的'),
+        ),
+        body: FractionallySizedBox(
+          widthFactor: 1,
+          child: Stack(
             children: <Widget>[
+              GestureDetector(
+                onTap: () => _printMsg('点击'),
+                onDoubleTap: () => _printMsg('双击'),
+                onLongPress: () => _printMsg('长按'),
+                onTapCancel: () => _printMsg('取消'),
+                onTapUp: (e) => _printMsg('松开'),
+                onTapDown: (e) => _printMsg('按下'),
+                child: Text('用户操作'),
+              ),
               Positioned(
                 left: moveX,
                 top: moveY,
@@ -46,16 +46,14 @@ class _MyState extends State<My> {
                     )),
               )
             ],
-          )
-        ],
-      ),
-    );
+          ),
+        ));
   }
 
   _doMove(DragUpdateDetails e) {
     setState(() {
       moveX += e.delta.dx;
-//      moveY += e.delta.dy;
+      moveY += e.delta.dy;
     });
   }
 }
