@@ -1,17 +1,20 @@
-# flutter_template
+# flutter_demo
 
-Flutter 项目开发模版。
+Flutter 学习 demo。用于测试集成各种好用的插件，测试各种功能。
 
-## 简介
+## TODO
 
-## v1.0 
+## 功能
+
+[-] 闪屏页
+[-] 底部导航
+[-] 页面切换
+[-] 支持 webview, 使用 `webview_flutter`。
+
+## 插件
 
 **功能**
 
-- 闪屏页
-- 底部导航
-- 页面切换
-- 支持 webview, 使用 `webview_flutter`。
 
 ## 说明
 
@@ -25,13 +28,3 @@ flutter_native_splash:
   color: "42a5f5"
   fill: true
 ```
-
-## flutter 笔记
-
-**总结**
-
-1. [所有 widget 目录一览](./doc/widget.md)
-
-**实践**
-
-2. [添加 webview_flutter 支持 webview](./doc/webview.md)
